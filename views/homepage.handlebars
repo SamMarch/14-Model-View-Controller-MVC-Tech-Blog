@@ -1,1 +1,10 @@
-<div>Itsa me Mario</div>
+<div>
+  {{#each blogs as |blog|}}
+    <div>
+      {{blog.title}}
+      {{blog.content}}
+      {{blog.user.username}}
+      {{blog.createdAt}}
+    </div>
+  {{/each}}
+</div>
