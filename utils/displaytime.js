@@ -1,3 +1,7 @@
-const displayTime = (time) => {};
+const moment = require("moment");
 
-module.exports = displayTime;
+const displayTime = (time) => {
+  return moment(time).format("MMM Do YYYY, h:mm:ss a");
+};
+
+module.exports = { displayTime };
