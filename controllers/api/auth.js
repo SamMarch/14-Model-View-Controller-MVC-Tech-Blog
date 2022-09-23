@@ -23,7 +23,6 @@ authRouter.post("/login", async (req, res, next) => {
       return next(Handlederror.databaseError());
     }
     req.session.user_id = userData.id;
-    req.session.logged_in = true;
     return res
       .status(200)
       .json({ user: userData, message: "You are now logged in!" });

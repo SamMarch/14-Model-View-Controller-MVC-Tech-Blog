@@ -12,8 +12,12 @@
       <nav class="flex p-5 gap-3 justify-end">
         <a class="hover:scale-[1.1] px-2" href="/">Home</a>
         <a class="hover:scale-[1.1] px-2" href="/dashboard">Dashboard</a>
-        <a class="hover:scale-[1.1] px-2" href="/login">Login</a>
-        <a class="hover:scale-[1.1] px-2" href="/logout">Logout</a>
+
+        {{#if loggedIn}}
+          <a class="hover:scale-[1.1] px-2" href="#">Logout</a>
+        {{else}}
+          <a class="hover:scale-[1.1] px-2" href="/login">Login</a>
+        {{/if}}
       </nav>
     </header>
     {{{body}}}
