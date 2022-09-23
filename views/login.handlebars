@@ -1,1 +1,15 @@
-<div>login page</div>
+<div class="bg-teal-500 box-content max-w-fit p-5 rounded-md shadow-md shadow-teal-900 mx-auto mt-24">
+    {{!-- this is the sign up form --}}
+    <form id="loginForm">
+        <div class="mb-3">
+            <label for="username" class="">Username</label>
+            <input type="text" class="" id="username"/>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="">Password</label>
+            <input type="password" class="" id="password"/>
+        </div>
+        <button id="submitBtn" type="submit" class="bg-teal-200 rounded-md px-5 hover:scale-[1.1]">Submit</button>
+</div>
+
+<script src="/js/login.js"></script>
