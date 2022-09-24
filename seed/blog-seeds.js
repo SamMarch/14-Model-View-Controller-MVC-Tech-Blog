@@ -20,7 +20,10 @@ const seedData = async (userId) => {
   ];
 
   const blogs = await Blog.bulkCreate(blogData);
-  return blogs;
+  console.log(blogs);
+  const blogIds = blogs.map((blog) => blog.id);
+  console.log(blogIds);
+  return blogIds;
 };
 
 module.exports = seedData;

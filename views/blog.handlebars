@@ -1,0 +1,56 @@
+<div class="p-3 space-y-6 max-w-screen-lg mx-auto">
+  <div
+    class="bg-teal-500 box-content p-3 rounded-md shadow-md shadow-teal-900 mt-10"
+  >
+    <div
+      class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3 mb-5"
+    >
+      {{blog.title}}
+    </div>
+    <div class="bg-teal-200 p-1 mb-3 mt-3">{{blog.content}}</div>
+    <div class="text-xs">Posted on: {{displayTime blog.createdAt}}</div>
+    <div class="text-xs">Author: {{blog.user.username}}</div>
+  </div>
+  <div
+    class="bg-teal-500 box-content p-3 rounded-md shadow-md shadow-teal-900 mt-10"
+  >
+    <h2
+      class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3 mb-5"
+    >Comments</h2>
+    {{#each blog.comments as |comment|}}
+      <div>
+        <div class="bg-teal-200 p-1 mb-3 mt-3">
+          {{comment.comment}}
+        </div>
+        <div class="text-xs">Posted on:
+          {{displayTime comment.createdAt}}</div>
+        <div class="text-xs">Author: {{comment.user.username}}</div>
+      </div>
+    {{/each}}
+    {{#if loggedIn}}
+      <form id="commentSubmitForm">
+        <div class="mb-3 flex flex-col mt-10">
+          <label for="comment" class="form-label">Add Comment</label>
+          <textarea
+            class="form-control"
+            id="comment"
+            rows="3"
+            placeholder="Enter your comment here"
+          ></textarea>
+        </div>
+        <button
+          id="commentSubmitBtn"
+          type="submit"
+          class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
+        >
+          Submit
+        </button>
+      </form>
+    {{else}}
+      <p>not logged in</p>
+    {{/if}}
+
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>;
