@@ -14,7 +14,8 @@
         <a class="hover:scale-[1.1] px-2" href="/dashboard">Dashboard</a>
 
         {{#if loggedIn}}
-          <a class="hover:scale-[1.1] px-2" href="#">Logout</a>
+          <a id="logoutBtn" class="hover:scale-[1.1] px-2" href="#">Logout</a>
+          <script src="/js/logout.js"></script>
         {{else}}
           <a class="hover:scale-[1.1] px-2" href="/login">Login</a>
         {{/if}}
@@ -22,5 +23,6 @@
     </header>
     {{{body}}}
     <footer></footer>
+
   </body>
 </html>

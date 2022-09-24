@@ -1,15 +1,55 @@
-<div class="bg-teal-500 box-content max-w-fit p-5 rounded-md shadow-md shadow-teal-900 mx-auto mt-24">
-    {{!-- this is the sign up form --}}
-    <form id="loginForm">
-        <div class="mb-3">
-            <label for="username" class="">Username</label>
-            <input type="text" class="" id="username"/>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="">Password</label>
-            <input type="password" class="" id="password"/>
-        </div>
-        <button id="submitBtn" type="submit" class="bg-teal-200 rounded-md px-5 hover:scale-[1.1]">Submit</button>
+<div
+  class="bg-teal-500 box-content max-w-fit p-5 rounded-md shadow-md shadow-teal-900 mx-auto mt-24"
+>
+  {{! this is the login form }}
+  <form id="loginForm">
+    <div class="mb-3">
+      <label for="username" class="">Username</label>
+      <input type="text" class="" id="username" />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="">Password</label>
+      <input type="password" class="" id="password" />
+    </div>
+    <button
+      id="submitBtn"
+      type="submit"
+      class="bg-teal-200 rounded-md px-5 hover:scale-[1.1]"
+    >Submit</button>
+  </form>
+</div>
+{{! this is the signup form }}
+<div
+  class="bg-teal-500 box-content max-w-fit p-5 rounded-md shadow-md shadow-teal-900 mx-auto mt-24"
+>
+  <form id="signupForm">
+    <div class="mb-3">
+      <label for="firstname" class="">First Name</label>
+      <input type="text" class="" id="firstname" />
+    </div>
+    <div class="mb-3">
+      <label for="lastname" class="">Last Name</label>
+      <input type="text" class="" id="lastname" />
+    </div>
+    <div class="mb-3">
+      <label for="signupUsername" class="">Username</label>
+      <input type="text" class="" id="signupUsername" />
+    </div>
+    <div class="mb-3">
+      <label for="signupPassword" class="">Password</label>
+      <input type="password" class="" id="signupPassword" />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="">Email</label>
+      <input type="email" class="" id="email" />
+    </div>
+    <button
+      id="signupSubmitBtn"
+      type="submit"
+      class="bg-teal-200 rounded-md px-5 hover:scale-[1.1]"
+    >Submit</button>
+  </form>
 </div>
 
 <script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>

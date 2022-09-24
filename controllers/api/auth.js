@@ -30,12 +30,40 @@ authRouter.post("/login", async (req, res, next) => {
 });
 
 authRouter.post("/logout", (req, res, next) => {
-  if (req.session.logged_in) {
+  if (req.session.user_id) {
     req.session.destroy(() => {
-      res.status(204);
+      res.sendStatus(204);
     });
   } else {
     next(Handlederror.badRequest());
+  }
+});
+
+authRouter.post("/signup", async (req, res, next) => {
+  try {
+    const { username, password, firstName, lastName, email } = req.body;
+    if ((!username || !password, !firstName, !lastName, !email)) {
+      return next(Handlederror.badRequest());
+    }
+    const userData = await User.create({
+      username,
+      password,
+      firstName,
+      lastName,
+      email,
+    });
+    console.log(userData);
+    req.session.save((err) => {
+      if (err) {
+        return next(Handlederror.databaseError());
+      }
+      req.session.user_id = userData.id;
+      return res
+        .status(201)
+        .json({ user: userData, message: "You are now logged in!" });
+    });
+  } catch (error) {
+    next(error);
   }
 });
 
