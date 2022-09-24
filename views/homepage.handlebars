@@ -1,16 +1,18 @@
-<div class="p-3 space-y-3">
+<div class="p-3 space-y-6 max-w-screen-lg mx-auto">
   {{#each blogs as |blog|}}
-    <div
-      class="bg-teal-500 box-content p-3 max-w-screen-lg rounded-md shadow-md shadow-teal-900"
-    >
-      <div
-        class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3"
+    <a href="/blog/{{blog.id}}"><div
+        class="bg-teal-500 box-content p-3 rounded-md shadow-md shadow-teal-900 hover:scale-[1.05] mt-10 transition-all duration-300"
       >
-        {{blog.title}}
+        <div
+          class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3"
+        >
+          {{blog.title}}
+        </div>
+        <div class="bg-teal-200 p-1">{{blog.content}}</div>
+        <div class="text-xs pt-3">Posted on:
+          {{displayTime blog.createdAt}}</div>
+        <div class="text-xs">Author: {{blog.user.username}}</div>
       </div>
-      <div class="bg-teal-200 p-1">{{blog.content}}</div>
-      <div class="text-xs pt-3">Posted on: {{displayTime blog.createdAt}}</div>
-      <div class="text-xs">Author: {{blog.user.username}}</div>
-    </div>
+    </a>
   {{/each}}
 </div>
