@@ -5,10 +5,10 @@ signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const username = document.querySelector("#signupUsername").value;
   const password = document.querySelector("#signupPassword").value;
-  const firstName = document.querySelector("#firstName").value;
-  const lastName = document.querySelector("#lastName").value;
+  const first_name = document.querySelector("#firstName").value;
+  const last_name = document.querySelector("#lastName").value;
   const email = document.querySelector("#email").value;
-  const data = { username, password, firstName, lastName, email };
+  const data = { username, password, first_name, last_name, email };
 
   signupSubmitBtn.disabled = true;
   signupSubmitBtn.innerHTML = "Signing up...";

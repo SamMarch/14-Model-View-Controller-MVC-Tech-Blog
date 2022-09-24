@@ -41,15 +41,15 @@ authRouter.post("/logout", (req, res, next) => {
 
 authRouter.post("/signup", async (req, res, next) => {
   try {
-    const { username, password, firstName, lastName, email } = req.body;
-    if ((!username || !password, !firstName, !lastName, !email)) {
+    const { username, password, first_name, last_name, email } = req.body;
+    if ((!username || !password, !first_name, !last_name, !email)) {
       return next(Handlederror.badRequest());
     }
     const userData = await User.create({
       username,
       password,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       email,
     });
     console.log(userData);
