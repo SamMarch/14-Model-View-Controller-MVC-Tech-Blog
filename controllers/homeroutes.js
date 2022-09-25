@@ -7,7 +7,6 @@ router.get("/", async (req, res) => {
     include: [{ model: User }],
   });
   const blogs = blogData.map((blog) => blog.get({ plain: true }));
-  console.log(blogs);
   res.render("homepage", { blogs });
 });
 
@@ -17,8 +16,12 @@ router.get("/login", (req, res) => {
 });
 
 /* this is a protected home route */
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+router.get("/dashboard", async (req, res) => {
+  const blogData = await Blog.findAll({
+    include: [{ model: User }],
+  });
+  const blogs = blogData.map((blog) => blog.get({ plain: true }));
+  res.render("dashboard", { blogs });
 });
 
 /* this is home route */
