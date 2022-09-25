@@ -2,26 +2,57 @@
   <div
     class="bg-teal-500 box-content p-3 rounded-md shadow-md shadow-teal-900 mt-10"
   >
-    <div
-      class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3 mb-5"
-    >
-      {{blog.title}}
+    <div id="addHidden" class="">
+      <div
+        class="bg-teal-900 text-zinc-200 rounded-t-md text-center font-bold p-3 mb-5"
+      >
+        {{blog.title}}
+      </div>
+      <div class="bg-teal-200 p-1 mb-3 mt-3">{{blog.content}}</div>
+      <div class="text-xs">Posted on: {{displayTime blog.createdAt}}</div>
+      <div class="text-xs">Author: {{blog.user.username}}</div>
+      {{#if edit}}
+        <button
+          id="editBlogBtn"
+          type="submit"
+          class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
+        >Edit</button>
+        <button
+          id="deleteBlogBtn"
+          type="submit"
+          class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
+        >Delete</button>
+      {{/if}}
     </div>
-    <div class="bg-teal-200 p-1 mb-3 mt-3">{{blog.content}}</div>
-    <div class="text-xs">Posted on: {{displayTime blog.createdAt}}</div>
-    <div class="text-xs">Author: {{blog.user.username}}</div>
-    {{#if edit}}
-      <button
-        id="editBlogBtn"
-        type="submit"
-        class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
-      >Edit</button>
-      <button
-        id="deleteBlogBtn"
-        type="submit"
-        class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
-      >Delete</button>
-    {{/if}}
+    <div id="removeHidden" class="hidden">
+      <div class="flex flex-col gap-3">
+        <form>
+          <div class="flex flex-col">
+            <label for="editBlogTitle">Title</label>
+            <input id="editBlogTitle" value="{{blog.title}}" type="text" />
+          </div>
+          <div class="flex flex-col">
+            <label for="editBlogContent">Content</label>
+            <textarea
+              name=""
+              id="editBlogContent"
+              cols="30"
+              rows="10"
+            >{{blog.content}}</textarea>
+          </div>
+          <div>
+            <button
+              id="saveBlogBtn"
+              class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
+            >Save</button>
+            <button
+              id="cancelEditBtn"
+              class="bg-teal-200 rounded-md px-5 hover:scale-[1.1] mt-5"
+            >Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <div
     class="bg-teal-500 box-content p-3 rounded-md shadow-md shadow-teal-900 mt-10"
@@ -51,6 +82,7 @@
           >Delete</button>
         {{/if}}
       </div>
+
     {{/each}}
     {{#if loggedIn}}
       <form id="commentSubmitForm">
@@ -71,8 +103,6 @@
           Submit
         </button>
       </form>
-    {{else}}
-      <p>not logged in</p>
     {{/if}}
 
   </div>
