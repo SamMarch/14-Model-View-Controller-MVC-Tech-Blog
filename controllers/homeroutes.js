@@ -15,15 +15,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-/* this is a protected home route */
-router.get("/dashboard", async (req, res) => {
-  const blogData = await Blog.findAll({
-    include: [{ model: User }],
-  });
-  const blogs = blogData.map((blog) => blog.get({ plain: true }));
-  res.render("dashboard", { blogs });
-});
-
 /* this is home route */
 router.get("/blog/:id", async (req, res) => {
   const blogData = await Blog.findByPk(req.params.id, {
