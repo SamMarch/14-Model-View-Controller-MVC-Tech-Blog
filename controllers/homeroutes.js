@@ -21,8 +21,12 @@ router.get("/blog/:id", async (req, res) => {
     include: [{ model: User }, { model: Comment, include: [{ model: User }] }],
   });
   const blog = blogData.get({ plain: true });
+  const edit = req.session.user_id === blog.author;
+  blog.comments.forEach((comment) => {
+    comment.edit = req.session.user_id === comment.author;
+  });
   console.log(blog);
-  res.render("blog", { blog });
+  res.render("blog", { blog, edit });
 });
 
 /* comments route needs be in an api, this also would render a comment alone without the blog */
