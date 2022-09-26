@@ -25,8 +25,8 @@ npm start
 
 First create user profile, then create a blog. You can update and delete the blog as well as comment.
 
-Deployed application: https://project-2-character-creator.herokuapp.com/
-Github repository: https://github.com/SamMarch/DnD-Character-Generator.git
+Deployed application: https://sam-march-forum4u.herokuapp.com/
+Github repository: https://github.com/SamMarch/14-Model-View-Controller-MVC-Tech-Blog.git
 
 ![](public/images/screenshot.png)
 
